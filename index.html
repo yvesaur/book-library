@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yves' Library</title>
+
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/icon.png"
+      type="image/x-icon"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="header">
+      <h1>
+        <img
+          src="./assets/img/book-settings-outline.svg"
+          style="height: 2.3rem"
+          alt="Bookmark Icon"
+        />BOOKMARKS
+      </h1>
+    </div>
+    <div id="content">
+      <div class="bookmark-list">
+        <div class="bookmark">
+          Title: How to Win Friends and Influence People<br />
+          Author: Dale Carnegie <br />
+          Pages: 400 <br />
+          Read: Yes
+        </div>
+
+        <div class="bookmark">
+          <h3 class="book-title">How to Win Friends and Influence People</h3>
+          <div class="book-data">
+            Author: Dale Carnegie <br />
+            Pages: 400 pg. <br />
+          </div>
+          <div class="book-status">
+            <label class="toggle" for="readButton">
+              <input class="toggle__input" type="checkbox" id="readButton" />
+              <div class="toggle__fill"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <button type="submit">+</button>
+    </div>
+    <div id="footer">
+      <a href="https://github.com/yvesaur">
+        <img
+          src="./assets/img/github.svg"
+          style="height: 2.3rem"
+          alt=""
+        />yvesito</a
+      >
+    </div>
+  </body>
+</html>

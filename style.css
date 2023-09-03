@@ -1,0 +1,112 @@
+/* CSS RESETS */
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+
+  font-size: 16px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* ---------- */
+
+:root {
+  --clr1: #f0f0df;
+  --clr2: #2b3a42;
+  --clr3: #3f5866;
+  --clr4: #bdd3de;
+  --clr5: #ff9000;
+  --font-clr: #f2f2f2;
+
+  --font-fallback: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  display: grid;
+  grid-template-rows: 80px 1fr 50px;
+
+  font-family: "Inconsolata", monospace, var(--font-fallback);
+  min-height: 100vh;
+}
+
+#header {
+  background-color: var(--clr5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--font-clr);
+  letter-spacing: 4px;
+}
+
+#header h1 {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 2.5rem;
+  align-items: center;
+}
+
+#content {
+  background-color: var(--clr1);
+}
+
+.bookmark-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.bookmark {
+  text-align: center;
+  background-color: var(--clr4);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark .toggle {
+  --width: 20px;
+  --height: calc(var(--width) / 2);
+  --border-radius: calc(var(--height) / 2);
+
+  display: inline-block;
+  cursor: pointer;
+}
+
+#footer {
+  background-color: var(--clr2);
+}
+
+#footer {
+  color: var(--clr1);
+  font-size: 1.5rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+#footer a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
