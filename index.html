@@ -1,102 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yves' Library</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Yves' Library</title>
 
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="shortcut icon"
-      href="./assets/img/icon.png"
-      type="image/x-icon"
-    />
+		<script
+			src="script.js"
+			async
+			defer></script>
+		<link
+			rel="stylesheet"
+			href="style.css" />
+		<link
+			rel="shortcut icon"
+			href="./assets/img/icon.png"
+			type="image/x-icon" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="header">
-      <h1>
-        <img
-          src="./assets/img/book-settings-outline.svg"
-          style="height: 2.3rem"
-          alt="Bookmark Icon"
-        />BOOKMARKS
-      </h1>
-    </div>
-    <div id="content">
-      <div class="bookmark-list">
-        <div class="bookmark">
-          <h3 class="book-title">How to Win Friends and Influence People</h3>
-          <p class="book-data">
-            <b>Author:</b> Dale Carnegie <br />
-            <b>Pages:</b> 400 pg. <br />
-            <b>Year:</b> 2020 <br />
-          </p>
-          <div class="book-status">
-            <p>Read:</p>
-            <label class="toggle" for="readButton">
-              <input class="toggle__input" type="checkbox" id="readButton" />
-              <div class="toggle__fill"></div>
-            </label>
-          </div>
-        </div>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
+			rel="stylesheet" />
+	</head>
+	<body>
+		<header id="header">
+			<h1>
+				<img
+					src="./assets/img/book-settings-outline.svg"
+					style="height: 2.3rem"
+					alt="Bookmark Icon" />BOOKMARKS
+			</h1>
+		</header>
+		<content id="content">
+			<div class="bookmark-list">
+				<div class="bookmark">
+					<h3 class="book-title">How to Win Friends and Influence People</h3>
+					<p class="book-data">
+						<b>Author:</b> Dale Carnegie <br />
+						<b>Pages:</b> 400 pg. <br />
+						<b>Year:</b> 2020 <br />
+					</p>
+					<div class="book-status">
+						<p>Read:</p>
+						<label
+							class="toggle"
+							for="readButton">
+							<input
+								class="toggle__input"
+								type="checkbox"
+								id="readButton"
+								checked />
+							<div class="toggle__fill"></div>
+						</label>
+					</div>
+				</div>
 
-        <button onclick="addBtn.showModal()" class="add-bookmark" type="submit">
-          <img
-            style="height: 3rem"
-            src="./assets/img/plus.svg"
-            alt="add bookmark icon"
-          />
-        </button>
-      </div>
-      <dialog id="addBtn">
-        <button onclick="addBtn.close()" class="dialogCloseBtn">
-          <img
-            src="./assets/img/close.svg"
-            style="height: 1rem; width: 1rem"
-            alt="close icon"
-          />
-        </button>
-        <form action="javascript:void(0);" method="dialog">
-          <label for="bookName"><b>Book Name: </b></label>
-          <input type="text" id="bookName" />
+				<button
+					onclick="addBtn.showModal()"
+					class="add-bookmark"
+					type="submit">
+					<img
+						style="height: 3rem"
+						src="./assets/img/plus.svg"
+						alt="add bookmark icon" />
+				</button>
+			</div>
+			<dialog id="addBtn">
+				<button
+					onclick="addBtn.close()"
+					class="dialogCloseBtn">
+					<img
+						src="./assets/img/close.svg"
+						style="height: 1rem; width: 1rem"
+						alt="close icon" />
+				</button>
+				<form
+					id="addBookForm"
+					action="javascript:void(0);"
+					method="dialog">
+					<label for="bookName"><b>Book Name: </b></label>
+					<input
+						type="text"
+						id="bookName" />
 
-          <label for="bookAuthor"><b>Book Author: </b></label>
-          <input type="text" id="bookAuthor" />
+					<label for="bookAuthor"><b>Book Author: </b></label>
+					<input
+						type="text"
+						id="bookAuthor" />
 
-          <label for="bookPages"><b>Book Pages: </b></label>
-          <input type="number" id="bookPages" />
+					<label for="bookPages"><b>Book Pages: </b></label>
+					<input
+						type="number"
+						id="bookPages" />
 
-          <label for="bookYear"><b>Book Year: </b></label>
-          <input type="number" id="bookYear" />
+					<label for="bookYear"><b>Book Year: </b></label>
+					<input
+						type="number"
+						id="bookYear" />
 
-          <div class="addBook-status">
-            <p><b>Read:</b></p>
-            <label class="toggle" for="addReadButton">
-              <input class="toggle__input" type="checkbox" id="addReadButton" />
-              <div class="toggle__fill"></div>
-            </label>
-          </div>
+					<div class="addBook-status">
+						<p><b>Read:</b></p>
+						<label
+							class="toggle"
+							for="haveReadToggle">
+							<input
+								class="toggle__input"
+								type="checkbox"
+								id="haveReadToggle" />
+							<div class="toggle__fill"></div>
+						</label>
+					</div>
 
-          <button type="submit"><b>ADD</b></button>
-        </form>
-      </dialog>
-    </div>
-    <div id="footer">
-      <a href="https://github.com/yvesaur">
-        <img
-          src="./assets/img/github.svg"
-          style="height: 2.3rem"
-          alt=""
-        />yvesito</a
-      >
-    </div>
-  </body>
+					<button type="submit">
+						<b>ADD</b>
+					</button>
+				</form>
+			</dialog>
+		</content>
+		<footer id="footer">
+			<a href="https://github.com/yvesaur">
+				<img
+					src="./assets/img/github.svg"
+					style="height: 2.3rem"
+					alt="" />yvesito</a
+			>
+		</footer>
+	</body>
 </html>
