@@ -91,22 +91,30 @@
 					<label for="bookName"><b>Book Name: </b></label>
 					<input
 						type="text"
-						id="bookName" />
+						id="bookName"
+						required />
 
 					<label for="bookAuthor"><b>Book Author: </b></label>
 					<input
 						type="text"
-						id="bookAuthor" />
+						id="bookAuthor"
+						required />
 
 					<label for="bookPages"><b>Book Pages: </b></label>
 					<input
 						type="number"
-						id="bookPages" />
+						id="bookPages"
+						min="1"
+						max="5000"
+						required />
 
 					<label for="bookYear"><b>Book Year: </b></label>
 					<input
 						type="number"
-						id="bookYear" />
+						id="bookYear"
+						min="1"
+						max="9999"
+						required />
 
 					<div class="addBook-status">
 						<p><b>Read:</b></p>
