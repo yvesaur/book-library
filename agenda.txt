@@ -1,5 +1,5 @@
 1. Inputs validation - ✅
 2. Write a function that loops through the array and displays each book on the page. - ✅
 3. Put uuid in each bookmark - ✅
-4. Put a method inside the book constructor for setting the haveRead toggle - 
+4. Put a method inside the book constructor for setting the haveRead toggle - ✅
 5. Add a button on each book’s display to remove the book from the library - ✅
