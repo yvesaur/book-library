@@ -1,3 +1,6 @@
+const bookmarkList = [];
+const addBookForm = document.getElementById("addBookForm");
+
 function Book(bookID, title, author, pages, year, haveRead) {
 	this.bookID = bookID;
 	this.title = title;
@@ -6,28 +9,31 @@ function Book(bookID, title, author, pages, year, haveRead) {
 	this.year = year;
 	this.haveRead = haveRead;
 
+	// Delete bookmark functionality for each bookmark
 	this.deleteBookmark = function (bookIndexToDelete) {
 		if (bookIndexToDelete !== -1) {
 			bookmarkList.splice(bookIndexToDelete, 1);
 			populateBookmarkList(bookmarkList);
 		}
 	};
-}
 
-const bookmarkList = [];
-const addBookForm = document.getElementById("addBookForm");
+	// Functionality for haveRead toggle to reflect value change in the bookmarkList
+	this.updateHaveReadValue = function (toggleValue) {
+		this.haveRead = toggleValue;
+		populateBookmarkList(bookmarkList);
+	};
+}
 
 function populateBookmarkList(bookmarkList) {
 	// select the bookmark container and clear its contents
 	const bookmarkListContainer = document.querySelector(".bookmark-list");
 	bookmarkListContainer.innerHTML = "";
 
+	// Add each bookmark object inside the bookmarkListContainer
 	for (let i = 0; i <= bookmarkList.length - 1; i++) {
 		bookmarkListContainer.innerHTML += `
 		<div class="bookmark" data-bookid="${bookmarkList[i].bookID}">
-			<h3 class="book-title">${sanitizeFormInputs(bookmarkList[i].title)} ${
-			bookmarkList[i].haveRead && "✅"
-		}</h3>
+			<h3 class="book-title">${sanitizeFormInputs(bookmarkList[i].title)}</h3>
 			<p class="book-data">
 				<b>Author:</b> ${sanitizeFormInputs(bookmarkList[i].author)} <br />
 				<b>Pages:</b> ${sanitizeFormInputs(bookmarkList[i].pages)} <br />
@@ -69,10 +75,12 @@ function populateBookmarkList(bookmarkList) {
 		</button>
 	`;
 
-	// Add delete bookmark functionality for each bookmark
+	// Event listeners for haveRead toggle and delete bookmark button for each bookmark
 	Array.from(bookmarkListContainer.children).forEach((bookmark) => {
 		const deleteButton = bookmark.querySelector(".delete-bookmark");
+		const haveReadToggle = bookmark.querySelector(".toggle__input");
 
+		// Find the index location of the bookmark in the bookmark Array via the bookID data-attribute
 		const bookIndex = bookmarkList.findIndex(
 			(obj) => obj.bookID === bookmark.dataset.bookid
 		);
@@ -82,7 +90,16 @@ function populateBookmarkList(bookmarkList) {
 				bookmarkList[bookIndex].deleteBookmark(bookIndex);
 			});
 		}
+
+		if (haveReadToggle) {
+			haveReadToggle.addEventListener("change", (e) => {
+				bookmarkList[bookIndex].updateHaveReadValue(e.target.checked);
+			});
+		}
 	});
+
+	// Log the Book objects array for developer testing
+	console.log(bookmarkList);
 }
 
 // Sanitize the string inputs to avoid XSS vulnerabilities
@@ -96,8 +113,8 @@ function sanitizeFormInputs(str) {
 }
 
 function addBooktoLibrary(e) {
+	// Generate random unique ID and get the input values on the dialog form
 	const formElements = e.target;
-
 	const bookID = crypto.randomUUID();
 	const bookName = formElements.elements["bookName"].value;
 	const author = formElements.elements["bookAuthor"].value;
@@ -105,6 +122,7 @@ function addBooktoLibrary(e) {
 	const year = formElements.elements["bookYear"].value;
 	const haveRead = formElements.elements["haveReadToggle"].checked;
 
+	// Update bookmarkList
 	bookmarkList.push(new Book(bookID, bookName, author, pages, year, haveRead));
 
 	// Populate the bookmarkListContainer and reset the form input values
